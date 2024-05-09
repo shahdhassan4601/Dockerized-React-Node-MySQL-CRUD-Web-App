@@ -1,0 +1,31 @@
+# Docker Compose configuration for a multi-container application setup
+version: '3.1'
+
+services:
+  # Frontend service configuration
+  frontend:
+    build: ./client # Specifies the directory containing the frontend code to build the Docker image
+    ports:
+      - "3000:3000" # Maps port 3000 on the host to port 3000 on the container
+    depends_on:
+      - api # Specifies that this service depends on the API service being available
+
+  # API service configuration
+  api:
+    build: ./server # Specifies the directory containing the API server code to build the Docker image
+    ports:
+      - "5000:5000" # Maps port 5000 on the host to port 5000 on the container
+    depends_on:
+      - db # Specifies that this service depends on the database service being available
+    environment:
+      DB_HOST: db # Sets the database host environment variable for the API service
+
+  # Database service configuration
+  db:
+    image: mysql:8.0 # Specifies the MySQL version to use for the database service
+    ports:
+      - "3307:3306" # Maps port 3307 on the host to port 3306 on the container
+    environment:
+      MYSQL_ROOT_PASSWORD: 4601 # Sets the root password for MySQL
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Mounts an initialization SQL script to initialize the database schema
