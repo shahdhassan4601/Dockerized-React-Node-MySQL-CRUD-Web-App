@@ -43,12 +43,12 @@ This project is a simple student management system built using Node.js for the s
   - ### Setup:
       Before running the project, make sure you have the following installed:
           
-      Docker: [Download and Install Docker](https://github.com/shahdhassan4601/Dockerized-React-Node-MySQL-CRUD-Web-App.git)
+      Docker: [Download and Install Docker](https://docs.docker.com/get-docker/)
 - ### Installation & Run:
     1. Clone the repository:
   
         ```bash
-        git clone https://github.com/madhurajayashanka/docker-mysql-nodejs-reactjs-app.git
+        git clone https://github.com/shahdhassan4601/Dockerized-React-Node-MySQL-CRUD-Web-App.git
         ```
         
     2. Move to project-directory:
